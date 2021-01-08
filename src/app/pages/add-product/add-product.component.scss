@@ -1,0 +1,108 @@
+small {
+  font-size: 10px;
+}
+
+.upload-img input[type="file"] {
+  opacity: 0;
+  height: 100%;
+  position: relative;
+  top: -140px;
+  cursor: pointer;
+}
+
+
+.upload-img-file {
+  opacity: 0;
+  height: 5px;
+  width: 5px;
+  position: absolute;
+}
+
+.product-main-image {
+  max-width: 100%;
+  height: 60vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-input {
+  width: 75%;
+  font-size: 12px;
+  background: var(--primary);
+  border: none;
+}
+
+.thumb-image {
+  width: 100%;
+  font-size: 2vw;
+  color: var(--primary);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumb-image-icon {
+  height: 80px;
+  width: 80px;
+}
+
+.upload-img {
+  background: #f6f6f7;
+  width: 90%;
+  height: 250px;
+  text-align: center;
+  padding-top: 10%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.upload-img p {
+  padding-top: 10px;
+  text-decoration: underline;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.mini-image {
+  height: 80px;
+  object-fit: cover;
+}
+
+button {
+  outline: none;
+}
+
+.removeRs {
+  position: relative;
+  top: -60px;
+  left: 26px;
+}
+
+.card-image {
+  max-height: 80px;
+}
+
+h2 {
+  color: #656565;
+  padding-left: 3%;
+}
+
+.submit {
+  margin-left: 2%;
+}
+
+.error-text {
+  color: #dc3545;
+}
+
+.error-input {
+  border: 1px solid #dc3545;
+}

@@ -1,0 +1,95 @@
+<form #productDetailsNgForm="ngForm" [formGroup]="addForm" (ngSubmit)="addProduct(addForm.value)">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <h2>Product Details</h2>
+      <hr/>
+      <mat-form-field appearance="outline" class="col-sm-12 mt-2">
+        <mat-label>Product Name</mat-label>
+        <input formControlName="title" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 mt-2">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" rows="8" matInput required></textarea>
+      </mat-form-field>
+      <h2>Product Specifications</h2>
+      <hr/>
+      <mat-form-field appearance="outline" class="col-md-6 col-sm-12 mt-2">
+        <mat-label>Width</mat-label>
+        <input formControlName="width" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col-md-6 col-sm-12 mt-2">
+        <mat-label>Length</mat-label>
+        <input formControlName="length" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col-md-6 col-sm-12 mt-2">
+        <mat-label>Depth</mat-label>
+        <input formControlName="depth" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col-md-6 col-sm-12 mt-2">
+        <mat-label>Color</mat-label>
+        <input formControlName="color" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col-sm-12 mt-2">
+        <mat-label>Feature List</mat-label>
+        <textarea formControlName="features" rows="8" matInput required></textarea>
+      </mat-form-field>
+      <h2>Product Pricing</h2>
+      <hr/>
+      <mat-form-field appearance="outline" class="col-md-6 col-sm-12 mt-2">
+        <mat-label>Original Price</mat-label>
+        <input formControlName="originalPrice" type="number" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col-md-6 col-sm-12 mt-2">
+        <mat-label>New Price</mat-label>
+        <input formControlName="newPrice" type="number" matInput required>
+      </mat-form-field>
+
+      <button class="submit" mat-raised-button color="primary" type="submit">Add Product</button>
+    </div>
+    <div class="col-md-6">
+      <img class="product-main-image" *ngIf="firstImage" [src]="firstImage">
+      <div class="upload-img" *ngIf="!firstImage"
+           [ngClass]="!firstImage && productDetailsNgForm.submitted? 'error-input' : ''">
+        <img src="./assets/images/camera.png">
+        <p>Upload Photos</p>
+        <small class="form-text text-muted">You can upload up to 5 photos per product</small>
+        <input type="file" multiple="multiple" accept="image/*"
+               (change)="uploadProductImg($event)"/>
+      </div>
+      <small class="form-text text-muted">200px x 200px - 5 MB</small>
+      <small class="form-text text-muted">Allowed attachments type allowed should be of type jpg, jpeg, png.</small>
+      <span class="error-text" *ngIf="!firstImage && productDetailsNgForm.submitted">
+              This field is required</span>
+      <div class="text-center" style=" width: 90%;" *ngIf="imgLoader">
+        <img src="./assets/images/loader.svg" style="width: 40px;">
+      </div>
+      <div *ngIf="productImages && productImages.length > 0" style=" width: 90%;">
+        <ngu-carousel #product_details_carousel [inputs]="carouselTile" [dataSource]="productImages">
+          <ngu-tile *nguCarouselDef="let item; let i = index">
+            <ng-container *ngIf="i + 1 !== productImages.length">
+              <div class="card-image">
+                <img class="thumb-image mini-image" [src]="item.image">
+                <a mat-icon-button class="removeRs" (click)="removeImage(item)">
+                  <mat-icon>close</mat-icon>
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="(i + 1 === productImages.length) && (i + 1 != 6)">
+              <div class="center" style="height: 80px">
+                <button class="thumb-image-icon" type="button" (click)="addMoreImg()" mat-button mat-icon-button
+                        color="primary" aria-label="Add More">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+              <!--              <mat-icon mat-icon-button
+                              class="thumb-image" (click)="addMoreImg()"
+                                 style="height: 80px">add</mat-icon>-->
+              <input style="display: none" id="upload-img-file" class="upload-img-file"
+                     type="file" accept="image/*" (change)="uploadMoreImg($event)"/>
+            </ng-container>
+          </ngu-tile>
+        </ngu-carousel>
+      </div>
+    </div>
+  </div>
+</form>

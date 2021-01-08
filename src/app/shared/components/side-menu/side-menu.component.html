@@ -1,0 +1,10 @@
+<mat-nav-list>
+  <div class="head">
+    <a>Online Store</a>
+  </div>
+  <a *ngFor="let item of menu" mat-list-item [routerLinkActive]="'active'" [routerLink]="item.router"
+     (click)="onSidenavClose()">
+    <mat-icon>{{item.icon}}</mat-icon>
+    <span class="nav-caption">{{item.title}}</span>
+  </a>
+</mat-nav-list>

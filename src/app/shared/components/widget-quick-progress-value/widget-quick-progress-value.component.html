@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-body">
+      <div class="media d-flex">
+        <div class="media-body text-left">
+          <h3 class="font-large-2 primary">{{value}}</h3>
+          <span>{{label}}</span>
+        </div>
+        <div class="align-self-center">
+          <i [ngClass]="icon" class="primary font-large-2 float-right"></i>
+        </div>
+      </div>
+      <div class="progress mt-1 mb-0" style="height: 7px;">
+        <div class="progress-bar bg-secondary" role="progressbar" [ngStyle]="{width: progress + '%'}"  aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxHide.gt-xs>
+  <div class="mt-2"></div>
+</div>

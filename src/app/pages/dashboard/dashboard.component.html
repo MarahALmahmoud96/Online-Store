@@ -1,0 +1,16 @@
+<h1>Hello Trader</h1>
+<hr/>
+<div class="row mt-10">
+  <app-widget-quick-value-center *ngFor="let item of cards" [icon]="item.icon"
+                                 class="col-xl-3 col-sm-6 col-12"
+                                 [label]="item.label"
+                                 [value]="item.value"></app-widget-quick-value-center>
+</div>
+<div class="row mt-10">
+  <app-widget-quick-progress-value *ngFor="let item of cardsProgress" [icon]="item.icon"
+                                   class="col-xl-3 col-sm-6 col-12"
+                                   [label]="item.label"
+                                   [progress]="item.progress"
+                                   [value]="item.value"></app-widget-quick-progress-value>
+</div>
+

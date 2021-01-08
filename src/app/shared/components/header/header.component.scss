@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+  color: white;
+  transition: all .4s ease;
+}
+
+.navigation-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+mat-toolbar {
+  box-shadow: 0px -2px 20px -6px black;
+}
+
+@media(max-width: 959px) {
+  mat-toolbar {
+    border-radius: 0;
+  }
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.2);
+}
